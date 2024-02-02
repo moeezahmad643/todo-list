@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+
+.sidebar {
+    /* border: 5px solid blue; */
+    left: 1px;
+    padding: 10px;
+    width: 20vw;
+    height: 100vh;
+    line-height: 50px;
+    cursor: pointer;
+    border-right: 1px solid gray;
+    overflow: hidden;
+
+
+
+    .main {
+        font-size: larger;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & header {
+            font-size: 25px;
+            margin: 10px 0;
+            text-align: center;
+
+        }
+
+    }
+
+    & ul {
+        & li {
+            padding: 0 10px;
+
+            & i {
+                margin: 2px;
+                font-size: large;
+            }
+
+            & input {
+                margin: 5px;
+            }
+
+        }
+
+        & li:hover {
+            /* font-weight: bold; */
+            padding-left: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 826px) {
+    .sidebar ul {
+        & li {
+            & i {
+                margin: 1px;
+                font-size: medium;
+            }
+
+            & input {
+                margin: 3px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sidebar ul {
+        & li {
+            & i {
+                margin: 0px;
+                font-size: small;
+            }
+
+            & input {
+                margin: 1px;
+            }
+        }
+    }
+}
+
+.other-side {
+    height: 100vh;
+    overflow: scroll;
+    scroll-behavior: auto;
+    overflow-x: hidden;
+    width: 80vw;
+}
+
+nav {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    .left-side {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .title {
+            & header {
+                font-size: 40px;
+                margin: 10px 0;
+                text-align: center;
+
+                @media screen and (max-width: 834px) {
+                    font-size: 30px;
+                }
+
+                @media screen and (max-width: 781px) {
+                    font-size: 25px;
+                }
+
+                @media screen and (max-width: 751px) {
+                    font-size: 20px;
+                }
+
+            }
+        }
+
+
+    }
+
+    .right-side {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+
+        .input-bar {
+            margin: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            border: 1px solid black;
+
+
+            & input {
+                margin: 5px;
+                border-radius: 5px;
+                border: 0px;
+                outline: none;
+            }
+        }
+
+        @media screen and (max-width: 751px) {
+            .input-bar {
+                margin: 5px;
+                padding: 3px;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+
+            .add-task {
+                & button {
+                    padding: 7px;
+                    display: flex;
+                    gap: 5px;
+                    align-items: center;
+                    border-radius: 5px;
+                    border: 1px solid black;
+
+                }
+
+                & button:hover {
+                    background-color: rgb(57, 57, 57);
+                    color: white;
+                }
+
+                & button:active {
+                    background-color: rgb(128, 128, 128);
+                    color: white;
+                    scale: 0.9;
+                }
+
+                & i {
+                    font-size: 20px;
+                }
+            }
+
+            @media screen and (max-width: 800px) {
+                & button {
+                    padding: 5px;
+                }
+
+            }
+
+            @media screen and (max-width: 700px) {
+                & button {
+                    padding: 2px;
+                    font-size: x-small;
+                }
+
+            }
+        }
+
+
+
+    }
+
+}
+
+.task-box {
+    padding: 10px;
+
+    .main {
+        font-size: 25px;
+    }
+
+    #tasks,
+    #completeTask {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        & p {
+            padding: 10px;
+            color: gray;
+            text-align: center;
+        }
+
+
+        .task {
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px gray;
+
+            & h3 {
+                display: flex;
+                gap: 2px;
+            }
+
+            .bi {
+                float: right;
+            }
+        }
+    }
+}
+
+#tempElement {
+    width: 60vw;
+    background-color: lightgray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    .bi-file-earmark-plus {
+        font-size: 50px;
+    }
+
+    & input,
+    textarea,
+    select {
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        outline: none;
+        padding: 7px;
+        position: relative;
+        width: 90%;
+        resize: none;
+    }
+
+    & textarea {
+        height: 100px;
+    }
+
+
+    & button {
+        width: 100px;
+        padding: 7px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    & button:hover {
+        background-color: rgb(57, 57, 57);
+        color: white;
+    }
+
+    & button:active {
+        background-color: rgb(128, 128, 128);
+        color: white;
+        scale: 0.9;
+    }
+}
+
+.mark {
+    font-size: x-small;
+}
+
+.mark:hover {
+    text-decoration: underline;
+}
+
+.task-box-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.dateTime {
+
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+
+
+@media screen and (max-width: 720px) {
+    .sidebar {
+        & ul {
+            & li {
+                font-size: x-small;
+            }
+        }
+    }
+
+    #tempElement {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    nav {
+        & input {
+            width: 100px;
+            font-size: x-small;
+        }
+    }
+
+    #tempElement {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .sidebar {
+        display: none;
+    }
+
+    .other-side {
+        width: 120%;
+        /* background-color: blue; */
+    }
+
+    #tempElement {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    nav {
+        flex-wrap: wrap;
+
+
+        .right-side {
+            display: flex;
+            flex-wrap: wrap;
+
+            .buttons {
+
+                .add-task {
+                    font-size: x-small;
+
+                    & i {
+                        font-size: x-small;
+                    }
+                }
+            }
+        }
+    }
+
+    #tempElement {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    nav {
+        flex-wrap: wrap;
+
+
+        .right-side {
+            display: flex;
+            /* justify-content: center; */
+            flex-wrap: wrap;
+
+            .input-bar {
+
+                width: 90%;
+            }
+
+            .buttons {
+                flex-wrap: wrap;
+
+                .add-task {
+                    & button {
+                        font-size: x-small;
+
+                        & i,
+                        p {
+                            font-size: x-small;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
